@@ -34,7 +34,7 @@ cp -r skill-create/skill-create-코어5 ~/.claude/skills/
 ### SKILL.md만 raw 다운로드
 ```bash
 mkdir -p ~/.claude/skills/skill-create-코어5
-curl -L https://raw.githubusercontent.com/SUNWOONGKYU/skill-create/main/skill-create-코어5/SKILL.md \
+curl -L https://raw.githubusercontent.com/SUNWOONGKYU/skill-create/main/skill-create-%EC%BD%94%EC%96%B45/SKILL.md \
      -o ~/.claude/skills/skill-create-코어5/SKILL.md
 ```
 
