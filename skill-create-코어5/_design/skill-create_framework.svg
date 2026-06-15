@@ -1,0 +1,170 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="auto" viewBox="0 0 1800 1200" preserveAspectRatio="xMidYMid meet" style="max-width:1800px;display:block;margin:auto;" font-family="Pretendard, 'Malgun Gothic', sans-serif">
+  <defs>
+    <marker id="arw" viewBox="0 0 10 10" markerWidth="9" markerHeight="9" refX="8" refY="5" orient="auto-start-reverse">
+      <path d="M0,0 L9,5 L0,10 z" fill="#2D6A4F"/>
+    </marker>
+    <marker id="arwg" viewBox="0 0 10 10" markerWidth="9" markerHeight="9" refX="8" refY="5" orient="auto-start-reverse">
+      <path d="M0,0 L9,5 L0,10 z" fill="#C9A961"/>
+    </marker>
+  </defs>
+
+  <rect width="1800" height="1200" fill="#FAFAF7"/>
+  <rect x="12" y="12" width="1776" height="1176" fill="none" stroke="#E6E2D6" stroke-width="2"/>
+
+  <!-- HEADER -->
+  <rect x="60" y="40" width="8" height="76" fill="#C9A961"/>
+  <text x="90" y="80" font-size="40" font-weight="800" fill="#0A1F14">skill-create</text>
+  <text x="370" y="80" font-size="24" font-weight="600" fill="#2D6A4F">— Claude Code 스킬 제조 공장 (트랙 ①)</text>
+  <text x="90" y="112" font-size="18" fill="#3A3A30">막연한 요청 한 줄 → 9-Phase 공장 → 단일 책임·자기완결·500줄 권장 SKILL.md 출하 → 운영 루프 회귀</text>
+  <text x="1740" y="74" font-size="16" font-weight="700" fill="#8A7236" text-anchor="end">FRAMEWORK</text>
+  <text x="1740" y="100" font-size="15" fill="#3A3A30" text-anchor="end">V3.7 · 2026-06-11</text>
+  <line x1="60" y1="140" x2="1740" y2="140" stroke="#E6E2D6" stroke-width="2"/>
+
+  <!-- 좋은 스킬 4대 원칙 -->
+  <text x="90" y="180" font-size="22" font-weight="700" fill="#0A1F14">좋은 스킬의 4대 원칙</text>
+
+  <rect x="60" y="200" width="400" height="100" fill="#FFFFFF" stroke="#2D6A4F" stroke-width="2" rx="8"/>
+  <text x="80" y="230" font-size="20" font-weight="700" fill="#2D6A4F">① 단일 책임</text>
+  <text x="80" y="260" font-size="16" fill="#0A1F14">하나의 명확한 목적만 담는다.</text>
+  <text x="80" y="284" font-size="16" fill="#0A1F14">거대 스킬 금지.</text>
+
+  <rect x="480" y="200" width="400" height="100" fill="#FFFFFF" stroke="#2D6A4F" stroke-width="2" rx="8"/>
+  <text x="500" y="230" font-size="20" font-weight="700" fill="#2D6A4F">② 자기완결</text>
+  <text x="500" y="260" font-size="16" fill="#0A1F14">외부 스킬에 의존하지 않는다.</text>
+  <text x="500" y="284" font-size="16" fill="#0A1F14">필요 내용은 자기 폴더에 내장.</text>
+
+  <rect x="900" y="200" width="400" height="100" fill="#FFFFFF" stroke="#2D6A4F" stroke-width="2" rx="8"/>
+  <text x="920" y="230" font-size="20" font-weight="700" fill="#2D6A4F">③ 간결</text>
+  <text x="920" y="260" font-size="16" fill="#0A1F14">500줄 이내 권장.</text>
+  <text x="920" y="284" font-size="14" fill="#3A3A30">(외부 표준 한도 없음 — 가독·재사용성 기준)</text>
+
+  <rect x="1320" y="200" width="420" height="100" fill="#FFFFFF" stroke="#2D6A4F" stroke-width="2" rx="8"/>
+  <text x="1340" y="230" font-size="20" font-weight="700" fill="#2D6A4F">④ 구조 완비</text>
+  <text x="1340" y="260" font-size="16" fill="#0A1F14">YAML 프론트매터 + Phase 구조 +</text>
+  <text x="1340" y="284" font-size="16" fill="#0A1F14">사용 예시 + 금지사항 (4요소)</text>
+
+  <!-- 9-Phase 파이프라인 -->
+  <text x="90" y="370" font-size="24" font-weight="700" fill="#0A1F14">9-Phase 공장 파이프라인 (3그룹)</text>
+  <text x="90" y="398" font-size="16" fill="#3A3A30">기획 (Phase 0~2) → 제작 (Phase 3~6) → 출하·운영 (Phase 7~9)</text>
+
+  <!-- 그룹 1: 기획 -->
+  <rect x="60" y="430" width="540" height="220" fill="#F8F6EE" stroke="#C9A961" stroke-width="2" rx="10"/>
+  <text x="80" y="462" font-size="20" font-weight="700" fill="#8A7236">📋 그룹 1 — 기획 (Phase 0~2)</text>
+
+  <rect x="80" y="478" width="160" height="80" fill="#FFFFFF" stroke="#2D6A4F" stroke-width="2" rx="6"/>
+  <text x="160" y="506" font-size="17" font-weight="700" fill="#0A1F14" text-anchor="middle">Phase 0</text>
+  <text x="160" y="528" font-size="15" fill="#3A3A30" text-anchor="middle">시동·모드</text>
+  <text x="160" y="546" font-size="13" fill="#3A3A30" text-anchor="middle">단일 / 배치</text>
+
+  <rect x="260" y="478" width="160" height="80" fill="#FFFFFF" stroke="#2D6A4F" stroke-width="2" rx="6"/>
+  <text x="340" y="506" font-size="17" font-weight="700" fill="#0A1F14" text-anchor="middle">Phase 1</text>
+  <text x="340" y="528" font-size="15" fill="#3A3A30" text-anchor="middle">스무고개</text>
+  <text x="340" y="546" font-size="13" fill="#3A3A30" text-anchor="middle">10라운드 기본</text>
+
+  <rect x="440" y="478" width="140" height="80" fill="#FFFFFF" stroke="#2D6A4F" stroke-width="2" rx="6"/>
+  <text x="510" y="506" font-size="17" font-weight="700" fill="#0A1F14" text-anchor="middle">Phase 2</text>
+  <text x="510" y="528" font-size="15" fill="#3A3A30" text-anchor="middle">목표·승인</text>
+  <text x="510" y="546" font-size="13" fill="#3A3A30" text-anchor="middle">MBO 게이트</text>
+
+  <line x1="240" y1="518" x2="260" y2="518" stroke="#2D6A4F" stroke-width="2" marker-end="url(#arw)"/>
+  <line x1="420" y1="518" x2="440" y2="518" stroke="#2D6A4F" stroke-width="2" marker-end="url(#arw)"/>
+
+  <text x="80" y="595" font-size="16" fill="#0A1F14">· 모드 결정 + 스무고개 10라운드 + MBO 목표서 승인까지가 1그룹.</text>
+  <text x="80" y="618" font-size="16" fill="#0A1F14">· 승인 없이는 제작 단계로 진행 불가 (⛔ 게이트).</text>
+  <text x="80" y="640" font-size="16" fill="#0A1F14">· 산출물: 출력 명세 + 큐레이션 알고리즘(해당 시).</text>
+
+  <line x1="610" y1="540" x2="650" y2="540" stroke="#C9A961" stroke-width="3" marker-end="url(#arwg)"/>
+
+  <!-- 그룹 2: 제작 -->
+  <rect x="660" y="430" width="720" height="220" fill="#F8F6EE" stroke="#C9A961" stroke-width="2" rx="10"/>
+  <text x="680" y="462" font-size="20" font-weight="700" fill="#8A7236">🏭 그룹 2 — 제작 (Phase 3~6) ★ 공장 심장</text>
+
+  <rect x="680" y="478" width="160" height="80" fill="#FFFFFF" stroke="#2D6A4F" stroke-width="2" rx="6"/>
+  <text x="760" y="506" font-size="17" font-weight="700" fill="#0A1F14" text-anchor="middle">Phase 3</text>
+  <text x="760" y="528" font-size="15" fill="#3A3A30" text-anchor="middle">발굴</text>
+  <text x="760" y="546" font-size="13" fill="#3A3A30" text-anchor="middle">OSS·사내·HF</text>
+
+  <rect x="860" y="478" width="160" height="80" fill="#FFF8E7" stroke="#C9A961" stroke-width="2.5" rx="6"/>
+  <text x="940" y="506" font-size="17" font-weight="700" fill="#0A1F14" text-anchor="middle">Phase 4 ★</text>
+  <text x="940" y="528" font-size="15" fill="#3A3A30" text-anchor="middle">분해·검증</text>
+  <text x="940" y="546" font-size="13" fill="#3A3A30" text-anchor="middle">BOM 5분류</text>
+
+  <rect x="1040" y="478" width="160" height="80" fill="#FFFFFF" stroke="#2D6A4F" stroke-width="2" rx="6"/>
+  <text x="1120" y="506" font-size="17" font-weight="700" fill="#0A1F14" text-anchor="middle">Phase 5</text>
+  <text x="1120" y="528" font-size="15" fill="#3A3A30" text-anchor="middle">설계 검증</text>
+  <text x="1120" y="546" font-size="13" fill="#3A3A30" text-anchor="middle">5A + 5B</text>
+
+  <rect x="1220" y="478" width="140" height="80" fill="#FFFFFF" stroke="#2D6A4F" stroke-width="2" rx="6"/>
+  <text x="1290" y="506" font-size="17" font-weight="700" fill="#0A1F14" text-anchor="middle">Phase 6</text>
+  <text x="1290" y="528" font-size="15" fill="#3A3A30" text-anchor="middle">조립·제조</text>
+  <text x="1290" y="546" font-size="13" fill="#3A3A30" text-anchor="middle">SKILL.md</text>
+
+  <line x1="840" y1="518" x2="860" y2="518" stroke="#2D6A4F" stroke-width="2" marker-end="url(#arw)"/>
+  <line x1="1020" y1="518" x2="1040" y2="518" stroke="#2D6A4F" stroke-width="2" marker-end="url(#arw)"/>
+  <line x1="1200" y1="518" x2="1220" y2="518" stroke="#2D6A4F" stroke-width="2" marker-end="url(#arw)"/>
+
+  <text x="680" y="595" font-size="16" fill="#0A1F14">· BOM 5분류 = 🟢 검증 통과 · 🟡 조건부 · 🔴 거부 · 🏭 자체 작성 · 🔵 공통 인프라</text>
+  <text x="680" y="618" font-size="16" fill="#0A1F14">· 🔵에 LLM 폴백 체인 (Claude→Gemini→GPT→Grok) 표준 자산 포함</text>
+  <text x="680" y="640" font-size="16" fill="#0A1F14">· Phase 5 = 5A 5기준×20점 채점 + 5B 역방향 분해·자가 수렴</text>
+
+  <line x1="1390" y1="540" x2="1430" y2="540" stroke="#C9A961" stroke-width="3" marker-end="url(#arwg)"/>
+
+  <!-- 그룹 3: 출하·운영 -->
+  <rect x="1440" y="430" width="300" height="220" fill="#F8F6EE" stroke="#C9A961" stroke-width="2" rx="10"/>
+  <text x="1460" y="462" font-size="20" font-weight="700" fill="#8A7236">📤 그룹 3</text>
+  <text x="1460" y="486" font-size="18" font-weight="600" fill="#8A7236">출하·운영 (7~9)</text>
+
+  <rect x="1460" y="500" width="120" height="56" fill="#FFFFFF" stroke="#2D6A4F" stroke-width="2" rx="6"/>
+  <text x="1520" y="524" font-size="16" font-weight="700" fill="#0A1F14" text-anchor="middle">Phase 7</text>
+  <text x="1520" y="544" font-size="14" fill="#3A3A30" text-anchor="middle">4단 QC</text>
+
+  <rect x="1600" y="500" width="120" height="56" fill="#FFFFFF" stroke="#2D6A4F" stroke-width="2" rx="6"/>
+  <text x="1660" y="524" font-size="16" font-weight="700" fill="#0A1F14" text-anchor="middle">Phase 8</text>
+  <text x="1660" y="544" font-size="14" fill="#3A3A30" text-anchor="middle">출하·등재</text>
+
+  <rect x="1460" y="568" width="260" height="56" fill="#FFFFFF" stroke="#2D6A4F" stroke-width="2" rx="6"/>
+  <text x="1590" y="592" font-size="16" font-weight="700" fill="#0A1F14" text-anchor="middle">Phase 9 — 운영 루프 ↻</text>
+  <text x="1590" y="613" font-size="13" fill="#3A3A30" text-anchor="middle">에러율·응답시간·피드백 임계값</text>
+
+  <line x1="1580" y1="528" x2="1600" y2="528" stroke="#2D6A4F" stroke-width="2" marker-end="url(#arw)"/>
+
+  <!-- Phase 9 → Phase 1 회귀 화살표 -->
+  <path d="M 1590,624 Q 1590,720 800,720 Q 340,720 340,560" fill="none" stroke="#B33A3A" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#arwg)"/>
+  <rect x="780" y="700" width="240" height="40" fill="#FFFFFF" stroke="#B33A3A" stroke-width="1.5" rx="4"/>
+  <text x="900" y="725" font-size="14" font-weight="700" fill="#B33A3A" text-anchor="middle">피드백 → Phase 1 회귀</text>
+
+  <!-- 형제 공장 관계 -->
+  <text x="90" y="800" font-size="22" font-weight="700" fill="#0A1F14">형제 공장 관계도</text>
+
+  <rect x="60" y="820" width="500" height="180" fill="#FFFFFF" stroke="#2D6A4F" stroke-width="2" rx="10"/>
+  <text x="310" y="852" font-size="22" font-weight="700" fill="#2D6A4F" text-anchor="middle">/skill-create  (트랙 ①)</text>
+  <text x="310" y="880" font-size="16" fill="#0A1F14" text-anchor="middle">제조 대상 = Claude Code 스킬 (SKILL.md)</text>
+  <text x="310" y="906" font-size="16" fill="#0A1F14" text-anchor="middle">2 모드: 단일 / 배치</text>
+  <text x="310" y="932" font-size="16" fill="#0A1F14" text-anchor="middle">출하 = ~/.claude/skills/{이름}/SKILL.md</text>
+  <text x="310" y="968" font-size="14" fill="#3A3A30" text-anchor="middle">호출 = /{스킬명} [인자] — 자동 슬래시 명령 인식</text>
+
+  <line x1="580" y1="900" x2="660" y2="900" stroke="#C9A961" stroke-width="3" marker-end="url(#arwg)" marker-start="url(#arwg)"/>
+  <text x="620" y="888" font-size="13" font-weight="700" fill="#8A7236" text-anchor="middle">동일</text>
+  <text x="620" y="918" font-size="13" font-weight="700" fill="#8A7236" text-anchor="middle">9-Phase</text>
+
+  <rect x="680" y="820" width="500" height="180" fill="#FFFFFF" stroke="#2D6A4F" stroke-width="2" rx="10"/>
+  <text x="930" y="852" font-size="22" font-weight="700" fill="#2D6A4F" text-anchor="middle">/llm-dependent-agent-create  (트랙 ②)</text>
+  <text x="930" y="880" font-size="16" fill="#0A1F14" text-anchor="middle">제조 대상 = LLM 의존형 독립 에이전트</text>
+  <text x="930" y="906" font-size="16" fill="#0A1F14" text-anchor="middle">3 모드: 단일 / 배치 / 포털</text>
+  <text x="930" y="932" font-size="16" fill="#0A1F14" text-anchor="middle">+ 인프라 2가지 (A Supabase / B 로컬)</text>
+  <text x="930" y="968" font-size="14" fill="#3A3A30" text-anchor="middle">같은 9-Phase 공장 + Phase 0·6만 차이</text>
+
+  <rect x="1220" y="820" width="520" height="180" fill="#FFF8E7" stroke="#C9A961" stroke-width="2" rx="10"/>
+  <text x="1480" y="852" font-size="20" font-weight="700" fill="#8A7236" text-anchor="middle">★ 공통 철학</text>
+  <text x="1240" y="888" font-size="16" fill="#0A1F14">· "통째로 신뢰하지 않는다" — 부품 단위 검증</text>
+  <text x="1240" y="912" font-size="16" fill="#0A1F14">· 검증된 부품만 적용 + 자체 작성 보강</text>
+  <text x="1240" y="936" font-size="16" fill="#0A1F14">· QC 출하검사 통과만 자산 등재</text>
+  <text x="1240" y="960" font-size="16" fill="#0A1F14">· 만들고 끝 X — 운영 루프로 회귀</text>
+  <text x="1240" y="984" font-size="16" fill="#0A1F14">· 자기검증 금지 — 별도 Verification Agent</text>
+
+  <!-- 하단 -->
+  <line x1="60" y1="1040" x2="1740" y2="1040" stroke="#E6E2D6" stroke-width="2"/>
+  <text x="900" y="1090" font-size="22" font-weight="700" fill="#0A1F14" text-anchor="middle">스킬 = 도메인 지식의 마크다운화 / 에이전트 = 그 마크다운을 실행하는 패키지</text>
+  <text x="900" y="1130" font-size="18" fill="#3A3A30" text-anchor="middle">같은 자산이 스킬로도 에이전트로도 재포장 가능 — 양방향 관계</text>
+  <text x="900" y="1170" font-size="15" fill="#3A3A30" text-anchor="middle">본 가이드: PART B · 2 (트랙 ①) · PART B · 3 (트랙 ②)</text>
+</svg>
