@@ -1,4 +1,4 @@
-# skill-create-코어5
+# skill-create-코어5 (V3.11)
 
 Claude Code용 **"스킬을 만드는 스킬"** — 막연한 요청을 9-Phase 제조 공장으로 돌려 단일 책임·자기완결 SKILL.md를 출하한다.
 
@@ -43,6 +43,29 @@ curl -L https://raw.githubusercontent.com/SUNWOONGKYU/skill-create/main/skill-cr
 ls ~/.claude/skills/ | grep skill-create-코어5
 ```
 새 Claude Code 세션에서 `/skill-create-코어5 [만들 스킬 설명]`이 인식되면 정상. (실행 중이었다면 재시작.)
+
+## 필수 동반 스킬 — mbo-skill
+
+이 스킬은 **`mbo-skill`(호출 `/mbo`)에 필수 의존**한다. Phase 2 목표서 양식·PO 승인 게이트·MBO 파일 저장·결과 보고가 전부 그 스킬에서 온다. 없으면 착수 전 자동 설치를 시도한다.
+
+미리 설치해 두려면:
+```bash
+# Git Bash / macOS / Linux
+mkdir -p ~/.claude/skills/mbo
+curl -fsSL -o ~/.claude/skills/mbo/SKILL.md https://raw.githubusercontent.com/SUNWOONGKYU/mbo-skill/main/SKILL.md
+```
+```powershell
+# Windows PowerShell
+New-Item -ItemType Directory -Force "$HOME\.claude\skills\mbo" | Out-Null
+Invoke-WebRequest -Uri https://raw.githubusercontent.com/SUNWOONGKYU/mbo-skill/main/SKILL.md -OutFile "$HOME\.claude\skills\mbo\SKILL.md"
+```
+저장소: [SUNWOONGKYU/mbo-skill](https://github.com/SUNWOONGKYU/mbo-skill)
+
+## 검증 편제
+
+- **작성자** — 이 스킬을 실행하는 Claude Code 세션 (Opus 5)
+- **V1** — Claude Code Teammate, 제조 미참여 별도 세션·읽기전용 (Sonnet 5)
+- **V2** — Codex CLI (GPT-5.6 Sol) — 미설치·인증 실패·할당량 소진 시 Opus 5 Teammate 폴백
 
 ## 핵심 원칙 (8대 철칙)
 1. 발굴물 무신뢰 — 공개 저장소도 통째 신뢰 금지
