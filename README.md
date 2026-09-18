@@ -1,4 +1,4 @@
-# skill-create-코어5 (V3.11)
+# skill-create-코어5 (V3.14)
 
 Claude Code용 **"스킬을 만드는 스킬"** — 막연한 요청을 9-Phase 제조 공장으로 돌려 단일 책임·자기완결 SKILL.md를 출하한다.
 
@@ -63,9 +63,11 @@ Invoke-WebRequest -Uri https://raw.githubusercontent.com/SUNWOONGKYU/mbo-skill/m
 
 ## 검증 편제
 
+Phase 5(설계서 확정)와 Phase 7(출하 검증) 두 곳에서 각 1회, 반드시 **다른 세션**이 검증한다(자기검증 금지).
+
 - **작성자** — 이 스킬을 실행하는 Claude Code 세션 (Opus 5)
-- **V1** — Claude Code Teammate, 제조 미참여 별도 세션·읽기전용 (Sonnet 5)
-- **V2** — Codex CLI (GPT-5.6 Sol) — 미설치·인증 실패·할당량 소진 시 Opus 5 Teammate 폴백
+- **Phase 5 — 설계 검증**: V1(Claude Code Teammate, 제조 미참여 별도 세션·읽기전용, Sonnet 5)이 문서(설계서·관계도/흐름도·BOM)만 읽고 이진 체크리스트 12항목을 판정. 코드 실행 없음.
+- **Phase 7 — 출하 검증**: V1(Sonnet 5, 5축 100점) + V2(Codex CLI, GPT-5.6 Sol, 탐지 실패 시 terra 1회 대체) — 미설치·인증 실패·할당량 소진 시 Opus 5 Teammate 폴백. "구현이 설계대로인가 + 실제로 도는가"만 검사(설계 적합성은 Phase 5에서 소진).
 
 ## 핵심 원칙 (8대 철칙)
 1. 발굴물 무신뢰 — 공개 저장소도 통째 신뢰 금지
