@@ -44,9 +44,9 @@ ls ~/.claude/skills/ | grep skill-create-코어5
 ```
 새 Claude Code 세션에서 `/skill-create-코어5 [만들 스킬 설명]`이 인식되면 정상. (실행 중이었다면 재시작.)
 
-## 필수 동반 스킬 — mbo-skill
+## 필수 동반 스킬 — mbo-천상 (공개명 mbo-skill)
 
-이 스킬은 **`mbo-skill`(호출 `/mbo`)에 필수 의존**한다. Phase 2 목표서 양식·PO 승인 게이트·MBO 파일 저장·결과 보고가 전부 그 스킬에서 온다. 없으면 착수 전 자동 설치를 시도한다.
+이 스킬은 **`mbo-천상`(공개명 `mbo-skill`, 호출 `/mbo`)에 필수 의존**한다. Phase 2 목표서 양식·PO 승인 게이트·MBO 파일 저장·결과 보고가 전부 그 스킬에서 온다. 없으면 착수 전 자동 설치를 시도한다. SKILL.md 본문의 `mbo-천상`·`/mbo-천상` 표기는 전부 이 스킬을 가리킨다 — 공개 저장소·설치 폴더명은 `mbo-skill`·`mbo`, 실제 호출은 `/mbo`이다.
 
 미리 설치해 두려면:
 ```bash
