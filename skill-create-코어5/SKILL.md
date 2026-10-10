@@ -1,5 +1,5 @@
 ---
-description: "Claude Code 스킬 제조 공장 — 막연한 요청을 10라운드 + α 문답으로 충분히 기획하고, 공개 저장소·OSS·사내 자산에서 부품을 발굴·안전성진단·분해하여 검증된 부품만 적용한다. Phase 5 에서 설계서를 확정하고 V1 이 문서(설계서·관계도/흐름도·BOM)만으로 이진 체크리스트 12항목을 검증한 뒤, QC로 출하검사한 완성 SKILL.md를 제조한다. 단일 책임·자기완결·500줄 권장 — 거대 스킬을 만들지 않는다. 단일/배치 2가지 제조 모드 지원 (포털은 웹사이트형 호스팅 구조 필요로 에이전트 전용). mbo-천상 필수 의존 — 없으면 자동 설치. 검증 편제 = 작성자(Opus 5)·V1(Claude Teammate Sonnet 5)·V2(Codex, 폴백 Opus 5 Teammate) — Phase 5 V1 설계 검증 1회(문서만, 이진 12항목) + Phase 7 V1 1회 → V2 1회(L 규모만) 출하 검증, 합격 = 5축 총점 ≥95 + Critical·High 0 + 4단 QC 전항 O. 발굴 2경로 — 사용자 지정 원자재가 있으면 그것만(A), 없을 때만 공개 발굴(B). 사용자가 '스킬 만들어', '스킬 제작', 'skill-create', 'skill-create-코어5', '~하는 스킬 만들어줘'를 요청할 때 사용. (LLM 의존형 에이전트 제작은 /에신-llm-dependent-agent-create — 형제 공장 별칭 '에신')"
+description: "Claude Code 스킬 제조 공장 — 막연한 요청을 10라운드 + α 문답으로 충분히 기획하고, 공개 저장소·OSS·사내 자산에서 부품을 발굴·안전성진단·분해하여 검증된 부품만 적용한다. Phase 5 에서 설계서를 확정하고 V1 이 문서(설계서·관계도/흐름도·BOM)만으로 이진 체크리스트 12항목을 검증한 뒤, QC로 출하검사한 완성 SKILL.md를 제조한다. 단일 책임·자기완결·500줄 권장 — 거대 스킬을 만들지 않는다. 단일/배치 2가지 제조 모드 지원 (포털은 웹사이트형 호스팅 구조 필요로 에이전트 전용). mbo-천상 필수 의존 — 없으면 자동 설치. 검증 편제 = 작성자(Opus 5)·V1(Claude Teammate Sonnet 5)·V2(Codex, 폴백 agy→grok→Claude Code 별도 세션) — Phase 5 V1 설계 검증 1회(문서만, 이진 12항목) + Phase 7 V1 1회 → V2 1회(L 규모만) 출하 검증, 합격 = 5축 총점 ≥95 + Critical·High 0 + 4단 QC 전항 O. 발굴 2경로 — 사용자 지정 원자재가 있으면 그것만(A), 없을 때만 공개 발굴(B). 사용자가 '스킬 만들어', '스킬 제작', 'skill-create', 'skill-create-코어5', '~하는 스킬 만들어줘'를 요청할 때 사용. (LLM 의존형 에이전트 제작은 /에신-llm-dependent-agent-create — 형제 공장 별칭 '에신')"
 user-invocable: true
 version: "3.14"
 last_updated: "2026-09-18"
@@ -7,7 +7,7 @@ last_updated: "2026-09-18"
 
 <!-- SKILL_CREATE_SPEC_VERSION: V3.14 -->
 <!--
-V3.14 (2026-09-18) — 형제 공장 에신 V4.4 짝 개정(PO 승인, 스킬·가이드·영상B 동시 개정)
+V3.14 (2026-09-18) — 형제 공장 에신 V4.4 짝 개정(PO 승인, 스킬·가이드·교육 자료 동시 개정)
   · Phase 5 개편 — "작성자 자체 점검(5A 루브릭 셀프 채점 + 5B 진단·해체)" 폐지 → 설계서 확정 + V1 설계 검증(문서만 — plan·SVG·bom, 이진 체크리스트 12항목). 반려는 그 항목만 이진 재확인. 산출물 `phase5_design_verify.md`
   · Phase 7 범위 축소 — 6축→5축(「구조 완성도」15점 제거, 나머지 20/15/20/20/25로 재배분). 설계 적합성은 Phase 5 로 이관, Phase 7 은 "구현이 설계대로인가 + 실제로 도는가"에 집중
   · 검증 지점 = Phase 5·Phase 7 두 곳(각 1회, 다른 세션) — "검증은 Phase 7 뿐" 원칙 폐지
@@ -57,8 +57,8 @@ V3.7 (2026-06-11) — Phase 7 검증 보강 (형제 메타 스킬 /에신 V3.7�
   · Phase 7-3+ 콘텐츠 교차오염 검사 신설 — 배치 모드(1b) 각 산출물 설명·메타가 자기 기능과 일치, 복붙·템플릿 잔재 0 (배치 생성 버그로 무관 산출물에 설명 복제된 회고)
   · 출처: 실서비스 백엔드 보안 10건 + a11y + 태그라인 오염 수정 (2026-06-11). /에신-llm-dependent-agent-create V3.7과 양방향 동기화.
 
-V3.6 (2026-05-30) — 영역 침범 방지 (facebook-post-기본 출하 회고)
-  · 사고: facebook-post-기본을 /skill-create-코어5로 시작했으나 인프라 B(로컬·DB 없음) 외부 호출 필요로 main.py·install_shortcut.ps1·verify_env.ps1·LLM 폴백 체인·history.json·자가평가 등 에신 V3.5 R5/R7/R8 표준 자산 7건 자동 차용 → 산출물 70%가 에신 패턴
+V3.6 (2026-05-30) — 영역 침범 방지 (선행 에이전트 출하 회고)
+  · 사고: 선행 에이전트을 /skill-create-코어5로 시작했으나 인프라 B(로컬·DB 없음) 외부 호출 필요로 main.py·install_shortcut.ps1·verify_env.ps1·LLM 폴백 체인·history.json·자가평가 등 에신 V3.5 R5/R7/R8 표준 자산 7건 자동 차용 → 산출물 70%가 에신 패턴
   · 진단: 두 메타 스킬 어느 쪽에도 "이 자산을 어디서 호출할 것인가" 사전 결정 게이트 부재 → 인프라 B에서 경계 모호 → 한쪽 시작이 자연스럽게 다른 쪽 영역 침범
   · 정정 1: Phase 0 직후 "경계 결정 트리" 강제 게이트 신설 — "Claude Code 안에서만 / 외부 cmd·바탕화면도" PO 명시 확인 → B 답변이면 /에신 분기 권고
   · 정정 2: Phase 6 가드 신설 — SKILL.md 외 부속 실행 엔진(.py·.bat·.ps1)·인프라 자산(history·error.log·pricing.json·LLM 폴백 체인) 생성 시도 시 자동 경고 + 중단 + 경계 회귀
@@ -79,7 +79,7 @@ V3.5 변경 (2026-05-28) — 형제 공장 V3.5 회고 반영 동기화 (Phase 1
   · Phase 1 산출물에 📡 출력 대상 시스템 명세 추가 (외부 출력 스킬에 한정 적용)
   · Phase 7-3+ "출력 대상 시스템 실제 화면 확인" 신설 — 자기 검증 금지 강화
   · 형제 공장 /llm-dependent-agent-create V3.5와 동기화
-  · 출처: claude-news-agent (2026-05-28) 실전 회고 + PO 회고 명령
+  · 출처: 선행 에이전트 (2026-05-28) 실전 회고 + PO 회고 명령
 
 V3.5 Round 15 (2026-05-29) — Phase 2.5 도메인 심층 리서치 신설 (형제 공장 동기화)
   · PO 지적 "지구상에 있는 모든 관련된 것을 심층 분석하는 프로세스가 빠졌다" 반영
@@ -191,7 +191,7 @@ V1.0 (2026-05-19) — 초기 작성
 3. **운용 충돌 0건 — 타협 불가** — PO 글로벌 헌법(한국어 출력·보안 가드·SAL/MBO 자동 감지)을 깨는 부품은 기능이 아무리 좋아도 적용 거부한다.
 4. **10라운드 + α 문답 항상 강제** — 막연한 요청을 그대로 받지 않는다. 모드에 맞춰 묻고 답해 스펙을 외부로 끌어낸다.
 5. **MBO 승인 게이트** — Phase 2 PO 승인 없이 제조(Phase 3 이후) 시작 금지.
-6. **자기검증 금지** — 제조한 스킬을 제조자가 검증하지 않는다. 별도 V1(Sonnet 5 읽기전용)·V2(Codex GPT-5.6 Sol 외부검증, 폴백 Opus 5 Teammate)를 투입한다.
+6. **자기검증 금지** — 제조한 스킬을 제조자가 검증하지 않는다. 별도 V1(Sonnet 5 읽기전용)·V2(Codex GPT-5.6 Sol 외부검증, 폴백 Antigravity CLI `agy` → Grok CLI `grok` → Claude Code 별도 세션[작업 미참여·읽기전용])를 투입한다.
 7. **"파일 생성 ≠ 동작함"** — `~/.claude/skills/`에 SKILL.md가 있는 것만으로 완료가 아니다. **실제 슬래시 호출로 의도대로 작동**해야 완료다.
 8. **자산화·운영까지가 완료** — 만들고 끝이 아니다. 등재 + CLAUDE.md 기록 + 운영 루프 가동까지 해야 출하 완료다.
 
@@ -286,7 +286,7 @@ Phase 9  운영·개선   — 사용 통계·피드백 → Phase 1 회귀 (루�
 | **V1(Phase 5 설계 검증)** | **Claude Code Teammate** — 제조 미참여 별도 세션, 읽기전용 | **Sonnet 5** | **문서만**(plan.md·관계도/흐름도 SVG·bom.md) — 코드 실행 없음. 이진 체크리스트 12항목 판정 |
 | **V1(Phase 7 출하 검증)** | **Claude Code Teammate** — 제조 미참여 별도 세션(Phase 5 V1 과 다른 세션), 읽기전용(산출물 수정 금지 — 검증 증거물 `_qc/` 기록은 허용) | **Sonnet 5** | 산출물 + 검증 기준만 전달(제조 맥락 비전달). 외부 도구 실행 결과 동봉. `Agent(subagent_type="general-purpose", model="sonnet")` 이상으로 소환, prompt에 "수정 금지·읽기전용" 명시 |
 | **V2** | **Codex CLI** | **GPT-5.6 Sol · Medium** | V1(Phase 7) 통과분에 대한 외부 가족 LLM 교차 검증. 아래 탐지 통과 시만 |
-| **V2 폴백** | **두 번째 Claude Code Teammate** — V1과 다른 세션, 제조·V1 맥락 모두 비전달 | **Opus 5** | Codex 미설치·인증 실패·할당량 소진 시. 보고서에 `V2: Claude 폴백 (사유)` 기록 의무 |
+| **V2 폴백** | **Antigravity CLI(`agy`) → 안 되면 Grok CLI(`grok`) → 그것도 안 되면 Claude Code 별도 세션(작업 미참여·읽기전용, 제조·V1 세션과 다른 세션)** — 같은 V2 지시문 실행, 제조·V1 맥락 모두 비전달 | 각 CLI 기본 모델 / 마지막 단계는 Sonnet 5 이상 | Codex 미설치·인증 실패·할당량 소진 시. 보고서에 `V2: Antigravity 폴백 (사유)` · `V2: Grok 폴백 (사유)` · `V2: Claude Code 별도 세션 폴백 (사유)` 중 해당 항목 기록 의무. 자기검증 금지 유지 *(2026-10-10 PO 결정)* |
 
 **Codex 탐지 — 설치 확인 ≠ 작동 확인**:
 ```
@@ -297,7 +297,7 @@ Phase 9  운영·개선   — 사용 통계·피드백 → Phase 1 회귀 (루�
 
 **적용 지점 = Phase 5(설계 검증)·Phase 7(출하 검사) 두 곳 (★V4.4 — Phase 5 자체 점검을 설계 검증으로 개편, 본체 에신 V4.4와 짝).** Phase 5 는 V1 1회(문서만, 이진 12항목). Phase 7 은 V1 1회 → (L 규모만) V2 1회 순차. **S·M 규모는 Phase7 V1 1회로 끝, V2는 L 규모에만 붙는다** — B안(PO 결정 2026-09-17). Phase 2.5 등 그 외 중간 단계에서는 검증자를 부르지 않는다(작성자 자체 정리만). 반려 항목은 수정 후 **그 항목만** 재확인 — 전체 재라운드 없음. Phase 2.5 리서치 병렬 Subagent도 L만, S·M은 작성자 직접 검색.
 
-> 구분: `claude-codex-3tier-team` 스킬은 V2를 Codex 단일로 못 박지만(2026-08-05 Opus 폴백 폐지), 그건 PO 운영 환경의 작업팀 규정이다. skill-create는 **공개 배포되어 Codex 없는 사용자가 흔하므로** 폴백을 둔다. 적용 대상이 달라 충돌이 아니다.
+> 구분: `claude-codex-3tier-team` 스킬은 V2를 Codex 단일로 못 박지만(2026-08-05 Opus 폴백 폐지), 그건 작업팀 운영 환경의 규정이다. skill-create는 **공개 배포되어 Codex 없는 사용자가 흔하므로** 폴백(`agy` → `grok` → Claude Code 별도 세션, 2026-10-10 PO 결정)을 둔다. 적용 대상이 달라 충돌이 아니다.
 
 ---
 
@@ -384,10 +384,10 @@ Q. 이 자산은 어디서 호출됩니까?
              tree_recommended: 에신-llm-dependent-agent-create
              po_decision: skill-create-코어5 강제
              risk: 산출물 70%+ 에신 영역 침범 가능
-             reference: facebook-post-기본 (2026-05-30) 사례
+             reference: 선행 에이전트 (2026-05-30) 사례
 ```
 
-> **이 게이트의 사유 (facebook-post-기본 회고):** 사고 발생 시 "Claude Code 안에서만 / 외부 cmd도?" 사전 확인이 부재했다. PO가 데스크톱형(로컬·DB 없음)에서 외부 cmd 호출도 원했으나 그 의도가 게이트로 잡히지 않아 본 메타 스킬이 자동으로 main.py·install_shortcut.ps1·LLM 폴백 체인 등 에신 영역 7건을 차용. 이 게이트는 같은 사고를 다시 막는다.
+> **이 게이트의 사유 (선행 에이전트 회고):** 사고 발생 시 "Claude Code 안에서만 / 외부 cmd도?" 사전 확인이 부재했다. PO가 데스크톱형(로컬·DB 없음)에서 외부 cmd 호출도 원했으나 그 의도가 게이트로 잡히지 않아 본 메타 스킬이 자동으로 main.py·install_shortcut.ps1·LLM 폴백 체인 등 에신 영역 7건을 차용. 이 게이트는 같은 사고를 다시 막는다.
 
 ---
 
@@ -767,8 +767,8 @@ X 가 있으면 작성자가 **그 항목만** 고치고 V1 에게 그 항목만
 
 ✅ `mbo-천상` — 목표서·승인·기록 (Phase 0-0 보장, 필수)
 ✅ V1 Claude Teammate — 설계 검증 (Phase 5 1회)
-✅ V2 Codex — 외부 가족 LLM 교차 검증 (Phase 7 1회, 미설치 시 Opus 5 Teammate 폴백)
-✅ Claude Code 내장 `Agent` — V1(Phase 5·Phase 7)·V2 폴백 소환
+✅ V2 Codex — 외부 가족 LLM 교차 검증 (Phase 7 1회, 미설치 시 폴백 agy→grok→Claude Code 별도 세션)
+✅ Claude Code 내장 `Agent` — V1(Phase 5·Phase 7)·V2 폴백(Claude Code 별도 세션 단계) 소환
 ❌ 그 외 외부 스킬(`/pro-persona-debate`·`/주작-sal-da`·`/review-evaluate`) 의무 호출 없음 — 절차는 본문 내장
 
 ### Phase 5 결과 → Phase 6 진입
@@ -859,7 +859,7 @@ Phase 0 → 1 → 2 → ...
 
 ## Phase 7. 출하 검사 — QC 4단 (V3.2, ★V4.4 범위 축소)
 
-**자기검증 금지. 출하 검증은 여기서 단 한 번**(설계 검증은 Phase 5 에서 이미 끝났다). 제조에 참여하지 않은 **V1(Claude Code Teammate·Sonnet 5, Phase 5 V1 과 다른 세션) 1회 → V2(Codex, 폴백 Opus 5 Teammate) 1회(L 규모만)** 순으로 투입한다 — 「검증 편제」 절. V1 입력 = SKILL.md + 검증 기준(7-5) + Phase 5 설계 검증 보고서(`_design/phase5_design_verify.md`). ★ 설계 적합성(스킬 요소 누락·흐름 끊김 등)은 Phase 5 에서 이미 검증됐으므로 다시 보지 않는다 — 「구현(SKILL.md 본문)이 설계대로인가 + 실제로 도는가」에 집중한다.
+**자기검증 금지. 출하 검증은 여기서 단 한 번**(설계 검증은 Phase 5 에서 이미 끝났다). 제조에 참여하지 않은 **V1(Claude Code Teammate·Sonnet 5, Phase 5 V1 과 다른 세션) 1회 → V2(Codex, 폴백 agy→grok→Claude Code 별도 세션) 1회(L 규모만)** 순으로 투입한다 — 「검증 편제」 절. V1 입력 = SKILL.md + 검증 기준(7-5) + Phase 5 설계 검증 보고서(`_design/phase5_design_verify.md`). ★ 설계 적합성(스킬 요소 누락·흐름 끊김 등)은 Phase 5 에서 이미 검증됐으므로 다시 보지 않는다 — 「구현(SKILL.md 본문)이 설계대로인가 + 실제로 도는가」에 집중한다.
 (출처: SUNNY AI MAGIC 50 #28 / review-evaluate-코어1)
 
 ### 7-0. V1·V2 소환 메커니즘 (V3.2 신설, ★V3.11 편제 반영)
@@ -868,7 +868,7 @@ Phase 0 → 1 → 2 → ...
 
 **소환 절차 (4단계 — 모두 필수)**:
 
-1. **별도 Agent 도구 호출** — V1은 `Agent(subagent_type="general-purpose", model="sonnet", mode="auto")`(Sonnet 5) Teammate로, V2는 Codex CLI(탐지 통과 시) 또는 `model="opus"` Teammate 폴백으로 띄운다. 제조 세션·제조 Subagent가 자기 자신을 검증하지 않는다.
+1. **별도 Agent 도구 호출** — V1은 `Agent(subagent_type="general-purpose", model="sonnet", mode="auto")`(Sonnet 5) Teammate로, V2는 Codex CLI(탐지 통과 시) 또는 폴백(`agy` → `grok` → `model="sonnet"` 이상의 Claude Code 별도 세션, 작업 미참여·읽기전용)으로 띄운다. 제조 세션·제조 Subagent가 자기 자신을 검증하지 않는다.
 2. **제조 컨텍스트 비전달** — V1 prompt에는 SKILL.md와 **검증 기준**만 전달. 제조 과정의 의도·근거·내부 결정 사항은 전달 금지 (편향 차단).
 3. **외부 검증 도구 사용 의무** — YAML frontmatter 검증·markdown lint·slash 호출 시뮬 등 **외부 도구 결과**를 함께 보고.
 4. **호출 증거 기록** — Phase 8 출하 보고서의 "QC 결과" 항목에 `verification_agent_invocations: N` 카운트 + 호출 시각·duration 명시.
@@ -924,14 +924,14 @@ Phase 0 → 1 → 2 → ...
 - 검증 항목 (최소): 텍스트 렌더링(마크다운 raw 노출 없음), 라벨·배지 의미 일치, 클릭 가능 요소 동작, 모바일/데스크톱 양쪽
 - **접근성(a11y) — 웹 UI/배포 산출물인 경우만 ★V3.7** — axe-core WCAG 2 A/AA **0 critical·0 serious**. 클릭·시각 검증은 색 대비·폼 라벨 누락·ARIA 결함을 못 잡는다(실서비스 2026-06-11 회고). (순수 SKILL.md·CLI 출력 스킬은 면제)
 - **콘텐츠 교차오염 0 — 배치 모드(1b, N개 산출) ★V3.7** — 각 산출물의 설명·메타가 자기 기능과 일치, 타 산출물 문구 복붙·생성 템플릿 잔재 0 (배치 생성 버그로 무관 산출물에 설명이 복제된 실서비스 회고). 표본 정상이어도 전수/표본 확대 점검.
-- 회고 사유: claude-news-agent (형제 공장 사례)에서 자기검증 모두 통과 후에도 PO 브라우저에서 마크다운 raw 노출 + 라벨 오용 결함 발견
+- 회고 사유: 선행 에이전트 (형제 공장 사례)에서 자기검증 모두 통과 후에도 PO 브라우저에서 마크다운 raw 노출 + 라벨 오용 결함 발견
 
 #### 7-4. V1 → V2 순차 1회 (★V3.12 — 승격 조건 폐지)
 
-V1(Claude)이 통과시킨 산출물을 **L 규모만** V2(Codex gpt-5.6-sol, 탐지 실패 시 gpt-5.6-terra 1회 → Opus 5 Teammate 폴백, 제조·V1 맥락 비전달)가 **1회** 교차 검증한다. V1(Claude)이 고점을 주면 같은 LLM 가족 편향을 의심한다.
+V1(Claude)이 통과시킨 산출물을 **L 규모만** V2(Codex gpt-5.6-sol, 탐지 실패 시 gpt-5.6-terra 1회 → agy → grok → Claude Code 별도 세션 폴백, 제조·V1 맥락 비전달)가 **1회** 교차 검증한다. V1(Claude)이 고점을 주면 같은 LLM 가족 편향을 의심한다.
 - **|V1 − V2| > 3점**이면 V2가 찾은 결함을 수정하고 **그 항목만** V2에 재확인(전체 재라운드 없음).
 - **V2가 채점 형식을 못 지켜 점수 측정 불가**면 `V2 미실시 (사유)` 표기 + V1 점수를 최종으로.
-- 폴백을 썼으면 출하 보고서에 `V2: Claude 폴백 (사유)` 기록.
+- 폴백을 썼으면 출하 보고서에 `V2: Antigravity 폴백 (사유)` · `V2: Grok 폴백 (사유)` · `V2: Claude Code 별도 세션 폴백 (사유)` 중 해당 항목 기록.
 - S·M 규모는 V1 1회로 출하한다(V2 없음). 어느 경우든 **V1 없이 출하 금지**, L은 V2도 있어야 출하.
 - 도메인 전문가 리뷰 (L 규모, 필요 시 PO에 의뢰)
 - 공개 저장소 검증 — 발굴한 부품의 라이선스·최신성 재확인
@@ -1014,7 +1014,7 @@ BOM 요약    : 🟢적용 N · 🟡재단 N · 🔴걸러냄 N · 🏭자체작
 발굴 출처   : {목록 — 사내 자산 포함}
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 QC 결과     : {S/M/L} — Phase5 설계검증 12항목 O · V1 XX/100 · V2 XX/100(L만) · Critical/High 0 · 4단 QC O/O/O/O (7-5)
-정적/동적/실호출/V1·V2검증 : 통과/실패 (V2 미실시 시 사유 / 폴백 시 `V2: Claude 폴백 (사유)`)
+정적/동적/실호출/V1·V2검증 : 통과/실패 (V2 미실시 시 사유 / 폴백 시 `V2: Antigravity/Grok/Claude Code 별도 세션 폴백 (사유)`)
 사용자 여정 : {KPI} — 통과/실패
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 MBO 달성    : 목표 대비 달성/미달성 (`/mbo-천상 report`(공개 설치본 `/mbo report`) 결과 옮겨 적음)
@@ -1165,7 +1165,7 @@ L 규모 스킬은 다음 사이클 산출물을 한꺼번에 풀지 않는다:
 - WebSearch, WebFetch (전방위 발굴)
 - Bash (`npx skills find`, OSS 검증, Phase 0-0 mbo-skill 설치 curl, Codex 탐지 `codex --version` + `codex exec -m gpt-5.6-sol` 실호출 1회, 실패 시 `-m gpt-5.6-terra` 1회)
 - Write, Edit (조립·등재)
-- Agent (V1 Teammate·V2 폴백 Teammate 투입)
+- Agent (V1 Teammate·V2 폴백 마지막 단계 Claude Code 별도 세션 투입)
 - Skill (`/mbo-천상` 목표서·승인·기록·결과 보고 — **필수** / `/diagram-기본` 아키텍처 SVG 생성만 위임). 검토·평가·진단·해체는 본문 내장 + V1·V2 편제
 
 ## 동원 방법론 출처
