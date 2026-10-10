@@ -58,7 +58,7 @@ V3.7 (2026-06-11) — Phase 7 검증 보강 (형제 메타 스킬 /에신 V3.7�
   · 출처: 실서비스 백엔드 보안 10건 + a11y + 태그라인 오염 수정 (2026-06-11). /에신-llm-dependent-agent-create V3.7과 양방향 동기화.
 
 V3.6 (2026-05-30) — 영역 침범 방지 (선행 에이전트 출하 회고)
-  · 사고: 선행 에이전트을 /skill-create-코어5로 시작했으나 인프라 B(로컬·DB 없음) 외부 호출 필요로 main.py·install_shortcut.ps1·verify_env.ps1·LLM 폴백 체인·history.json·자가평가 등 에신 V3.5 R5/R7/R8 표준 자산 7건 자동 차용 → 산출물 70%가 에신 패턴
+  · 사고: 선행 에이전트를 /skill-create-코어5로 시작했으나 인프라 B(로컬·DB 없음) 외부 호출 필요로 main.py·install_shortcut.ps1·verify_env.ps1·LLM 폴백 체인·history.json·자가평가 등 에신 V3.5 R5/R7/R8 표준 자산 7건 자동 차용 → 산출물 70%가 에신 패턴
   · 진단: 두 메타 스킬 어느 쪽에도 "이 자산을 어디서 호출할 것인가" 사전 결정 게이트 부재 → 인프라 B에서 경계 모호 → 한쪽 시작이 자연스럽게 다른 쪽 영역 침범
   · 정정 1: Phase 0 직후 "경계 결정 트리" 강제 게이트 신설 — "Claude Code 안에서만 / 외부 cmd·바탕화면도" PO 명시 확인 → B 답변이면 /에신 분기 권고
   · 정정 2: Phase 6 가드 신설 — SKILL.md 외 부속 실행 엔진(.py·.bat·.ps1)·인프라 자산(history·error.log·pricing.json·LLM 폴백 체인) 생성 시도 시 자동 경고 + 중단 + 경계 회귀
